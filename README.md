@@ -1,4 +1,4 @@
-# QA Automation Starter — Aris Ashlynn Ellis
+# QA Automation Starter — Ashlynn Ellis
 ![CI](https://github.com/pashlynnee-cell/qa-automation-starter-aris-ellis/actions/workflows/ci.yml/badge.svg)
 
 Tiny, professional Playwright + TypeScript suite that proves I can set up, stabilize, and run automation **locally and in CI**.  
