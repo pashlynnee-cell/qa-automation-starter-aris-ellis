@@ -12,10 +12,10 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: "18"
+          node-version: "20"
       - run: npm ci || npm install
       - run: npx playwright install --with-deps
-      - name: Run Playwright tests (Chromium) + HTML report
+      - name: Run tests (Chromium) + make HTML report
         run: npx playwright test --project=chromium --reporter=html
         env:
           BASE_URL: https://example.com/
