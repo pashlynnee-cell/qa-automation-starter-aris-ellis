@@ -1,3 +1,5 @@
+![CI](https://github.com/pashlynnee-cell/qa-automation-starter-aris-ellis/actions/workflows/ci.yml/badge.svg)
+
 # QA Automation Starter — Aris Ashlynn Ellis
 
 Playwright + TypeScript starter that shows creativity: clean test design, personas, API tests, visual checks, CI, and optional Slack summaries.
@@ -50,3 +52,4 @@ reporters/
 **Tip:** Pick one "persona" (e.g., slow-network mobile user) per week and write 2–3 tests that only that persona would break. That's where the fun lives.
 
 Last updated: 2025-08-08T15:39:34
+
