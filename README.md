@@ -57,3 +57,6 @@ Last updated: 2025-08-08T15:39:34
 Kick CI: 2025-08-08T18:13:59
 
 CI ping: 2025-08-08T18:41:14
+## Report screenshot
+
+![Test Report](docs/report.png)
