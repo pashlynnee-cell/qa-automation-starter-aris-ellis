@@ -1,25 +1,16 @@
-import { test, expect } from '@playwright/test';
+import { test, expect } from "@playwright/test";
 
-test.describe('TodoMVC — basic flow', () => {
-  test('add and complete a todo @smoke', async ({ page }) => {
-    await page.goto('/');
-    await page.waitForSelector('input.new-todo', { state: 'visible', timeout: 15000 });
-
-    const input = page.locator('input.new-todo');
-    await input.fill('Write creative Playwright tests');
-    await input.press('Enter');
-
-    const firstItem = page.locator('.todo-list li').first();
-    await expect(firstItem).toContainText('Write creative Playwright tests');
-
-    await firstItem.locator('.toggle').check();
-    await expect(firstItem).toHaveClass(/completed/);
+test.describe("example.com — basic checks", () => {
+  test("home page renders with correct title and H1 @smoke", async ({ page }) => {
+    const res = await page.goto("/");
+    expect(res?.ok()).toBeTruthy();
+    await expect(page).toHaveTitle(/Example Domain/i);
+    await expect(page.locator("h1")).toHaveText("Example Domain");
   });
 
-  test('handles empty items gracefully', async ({ page }) => {
-    await page.goto('/');
-    await page.waitForSelector('input.new-todo', { state: 'visible', timeout: 15000 });
-    await page.locator('input.new-todo').press('Enter');
-    await expect(page.locator('.todo-list li')).toHaveCount(0);
+  test("More information link goes to IANA", async ({ page }) => {
+    await page.goto("/");
+    await page.getByRole("link", { name: /more information/i }).click();
+    await expect(page).toHaveURL(/iana\.org/i);
   });
 });
