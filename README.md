@@ -1,62 +1,83 @@
+﻿# QA Automation Starter — Ashlynn Ellis
 ![CI](https://github.com/pashlynnee-cell/qa-automation-starter-aris-ellis/actions/workflows/ci.yml/badge.svg)
+![Playwright](https://img.shields.io/badge/Tested%20with-Playwright-45ba4b)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.x-blue)
+![License](https://img.shields.io/badge/License-MIT-lightgrey)
 
-# QA Automation Starter — Aris Ashlynn Ellis
-
-Playwright + TypeScript starter that shows creativity: clean test design, personas, API tests, visual checks, CI, and optional Slack summaries.
-
-## Quick start
-```bash
-# 1) Node 18+ recommended
-npm install
-npm run install:drivers
-
-# 2) Run locally
-npm test          # headless
-npm run test:ui   # watch mode
-npm run report    # open HTML report
-```
-
-## What to edit first
-- Set your target app URL:
-  - `BASE_URL` env var, or change the default in `playwright.config.ts`.
-- Update tests in `tests/ui.todo.spec.ts` to match your app.
-- Add API endpoints in `tests/api.sample.spec.ts`.
-
-## CI (GitHub Actions)
-See `.github/workflows/ci.yml`. It runs tests in parallel, uploads the HTML report, and (optionally) posts a Slack summary if `SLACK_WEBHOOK_URL` is configured as a repo secret.
-
-## Slack summary (optional)
-Set an incoming webhook URL as an environment variable:
-- Local: `export SLACK_WEBHOOK_URL='https://hooks.slack.com/services/...'`
-- GitHub Actions: Settings → Secrets → Actions → `SLACK_WEBHOOK_URL`
-The custom reporter will post only when failures occur.
-
-## Structure
-```text
-tests/
-  ui.todo.spec.ts         # UI flow + visual check example
-  api.sample.spec.ts      # API test example with request fixture
-utils/
-  personas.ts             # example persona data
-reporters/
-  slack-reporter.js       # sends concise failure summary to Slack (optional)
-.github/workflows/ci.yml  # CI with report artifact + Slack step
-```
-
-## Creative ideas to extend
-- Add an accessibility sweep (axe-core/Playwright).
-- Add a "flake hunter" job that retries under bad network profiles.
-- Add k6 smoke test (scripts/load-smoke.js) and publish a tiny chart.
+I built this small Playwright + TypeScript suite to demonstrate how I set up **stable, maintainable automation** from scratch: UI + API checks, HTML reports, and a clean GitHub Actions pipeline. It’s intentionally minimal, readable, and easy to extend.
 
 ---
-**Tip:** Pick one "persona" (e.g., slow-network mobile user) per week and write 2–3 tests that only that persona would break. That's where the fun lives.
 
-Last updated: 2025-08-08T15:39:34
+## What’s inside
+- **UI smoke tests** against a deterministic target (`example.com`) using stable selectors.
+- **API smoke tests** (jsonplaceholder) for simple GET/POST sanity.
+- **HTML report** published as a CI artifact on every run.
+- **CI workflow** (Chromium for stability) that’s fast and green.
+- Clear structure and defensive waits to reduce flakes.
 
-
-Kick CI: 2025-08-08T18:13:59
-
-CI ping: 2025-08-08T18:41:14
-## Report screenshot
-
+### Screenshot
 ![Test Report](docs/report.png)
+
+---
+
+## Quick start
+
+### Windows (PowerShell)
+```powershell
+npm install
+npx playwright install --with-deps
+$env:BASE_URL="https://example.com/"
+npx playwright test --project=chromium --reporter=html
+npx playwright show-report
+macOS / Linux
+bash
+Copy
+Edit
+npm install
+npx playwright install --with-deps
+export BASE_URL="https://example.com/"
+npx playwright test --project=chromium --reporter=html
+npx playwright show-report
+Repo structure
+lua
+Copy
+Edit
+tests/
+  ui.todo.spec.ts
+  api.sample.spec.ts
+  a11y.spec.ts
+.github/
+  workflows/
+    ci.yml
+reporters/
+  slack-reporter.js
+utils/
+  personas.ts
+docs/
+  report.png
+playwright.config.ts
+package.json
+tsconfig.json
+README.md
+LICENSE
+Notes on design
+Stability first: Chromium in CI; enable more browsers locally if needed.
+
+Defensive waits: Guard for slow loads to avoid noisy flakes.
+
+Artifacts for handoff: HTML report + screenshots/video on failure.
+
+Configure
+Default baseURL is https://example.com/. Override with BASE_URL env var or edit playwright.config.ts.
+
+Roadmap / nice-to-haves
+Accessibility sweep (axe-core + Playwright)
+
+“Flake hunter” retry job under poor network
+
+Visual regression sample
+
+Optional Slack summary via a reporter
+
+Built by: Aris Ashlynn Ellis · LinkedIn: https://www.linkedin.com/in/ashlynn-e-287979156 · Email: pellis5@students.towson.edu
+License: MIT
