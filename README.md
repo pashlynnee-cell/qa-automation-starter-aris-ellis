@@ -1,6 +1,3 @@
-cd "$env:USERPROFILE\Downloads\qa-automation-starter-aris-ellis"
-
-@'
 # QA Automation Starter — Aris Ashlynn Ellis
 ![CI](https://github.com/pashlynnee-cell/qa-automation-starter-aris-ellis/actions/workflows/ci.yml/badge.svg)
 
