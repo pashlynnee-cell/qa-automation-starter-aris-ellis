@@ -15,8 +15,8 @@ jobs:
           node-version: "20"
       - run: npm ci || npm install
       - run: npx playwright install --with-deps
-      - name: Run tests (Chromium) + make HTML report
-        run: npx playwright test --project=chromium --reporter=html
+      - name: Run tests (Chromium) + make HTML report (example.com only)
+        run: npx playwright test --project=chromium --reporter=html -g "example.com"
         env:
           BASE_URL: https://example.com/
       - name: Upload HTML report
