@@ -48,3 +48,5 @@ reporters/
 
 ---
 **Tip:** Pick one "persona" (e.g., slow-network mobile user) per week and write 2–3 tests that only that persona would break. That's where the fun lives.
+
+Last updated: 2025-08-08T15:39:34
