@@ -1,4 +1,6 @@
-﻿# QA Automation Starter — Ashlynn Ellis
+﻿> ▶ **60-sec demo:** https://www.loom.com/share/c051e65e40fc494b92f76b550430a229?sid=00234792-aac9-4575-8b5e-9ded6fe09766
+
+# QA Automation Starter — Ashlynn Ellis
 ![CI](https://github.com/pashlynnee-cell/qa-automation-starter-aris-ellis/actions/workflows/ci.yml/badge.svg)
 ![Playwright](https://img.shields.io/badge/Tested%20with-Playwright-45ba4b)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.x-blue)
@@ -81,3 +83,4 @@ Optional Slack summary via a reporter
 
 Built by: Aris Ashlynn Ellis · LinkedIn: https://www.linkedin.com/in/ashlynn-e-287979156 · Email: pellis5@students.towson.edu
 License: MIT
+
